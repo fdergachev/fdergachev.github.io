@@ -1,0 +1,490 @@
+
+//variables
+
+
+//basic style
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,500&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&subset=cyrillic-ext");
+
+$minwidth: 320px;
+$mw: 1200;
+$md1: ($mw + 12) + px;
+$md2: 991.98 + px ;
+$md3: 767.98 + px;
+$md4: 479.98 + px;
+
+
+// ===============================
+$maxWidthContainer: $mw+30;
+
+@mixin adaptive-value($property, $startSize, $minSize, $type){
+   $addSize: $startSize - $minSize;
+   @if $type == 1{
+      #{$property}: $startSize + px;
+      @media (max-width: #{$maxWidthContainer + px}){
+         #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px)/ #{$maxWidthContainer - 320}));
+      }
+   } @else if $type == 2 {
+      #{$property}: $startSize + px;
+      @media (min-width: #{$maxWidthContainer + px}){
+         #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px)/ #{$maxWidth - 320}));
+      }
+   } @else{
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px)/ #{$maxWidth - 320}));
+   }
+}
+// ================================
+
+@import "nullstyle.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "about.scss";
+@import "gallery.scss";
+@import "price.scss";
+@import "tickets.scss";
+body{
+  
+   font-family: 'Montserrat', sans-serif;
+   top: 0;
+   left: 0;
+}
+body.about-body,body.gallery-body{  
+   overflow-x: hidden;
+}
+body.gallery-body{
+}
+body::-webkit-scrollbar {
+   width: 0;
+ }
+._container{
+   // margin: 0 -10px;
+   position: relative;
+   max-width: $mw + px;
+   height: 100%;
+   overflow: hidden;
+   margin: 0 auto;
+}
+
+._container{
+   max-width: $mw + px;
+   margin: 0 auto;
+   @media (max-width:$md1){
+      max-width: 970px;
+   }
+   @media (max-width:$md2){
+      max-width: 750px;
+   }
+   @media (max-width:$md3){
+      max-width: none;
+      padding: 0 10px;
+   }
+}
+
+//style of main page
+
+.content{
+   &__container-a{
+      overflow: visible;
+      @media(max-width: $md1){
+         overflow-x: hidden;
+      }
+   }
+   position: relative;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   &__wrapper{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+   &__qoute{
+      margin: 250px 0px 0px 0px;
+      @media(max-width: $md1){
+         margin: 180px 0px 0px 0px;
+      }
+      @media(max-width: $md2){
+         margin: 120px 0px 0px 0px;
+      }
+      @media(max-width: $md4){
+         margin: 80px 0px 0px 0px;
+      }
+   }
+   &__numbered-list{
+      width: 100%;
+      padding: 110px 0px 170px 0px;
+      @media(max-width: $md1){
+         padding: 80px 0px 120px 0px;
+      }
+      @media(max-width: $md3){
+         padding: 40px 0px 90px 0px;
+      }
+   }
+   &-g{
+      position: relative;
+      width: 100%;
+      height: auto;
+      flex:1 1 auto;
+   }
+}
+
+
+/* =============== */
+
+.media{
+   margin: 390px 0px 0px 0px;
+   @media(max-width: $md2){
+      margin: 200px 0px 0px 0px;
+   }
+   @media(max-width: $md4){
+      margin: 120px 0px 0px 0px;
+   }
+   background-color: #000000;
+   &__video{
+      @media(max-width: $md2){
+         padding: 80px 0px 0px 0px;
+      }  
+      padding: 120px 0px 0px 0px;
+   }
+   &__map{
+      display: flex;
+      justify-content: center;
+      .frame-fullscrean{
+         visibility: 1;
+         @media(max-width:768px){
+            visibility: 0;
+            display: none;
+         }
+      }
+      .frame-mobile{
+         visibility: 0;
+         display: none;
+         @media(max-width:768px){
+            visibility: 1;
+            display: block;
+         }
+      }
+      padding: 120px 0px 0px 0px;
+      @media(max-width: $md1){
+      padding: 80px 0px 0px 0px;
+      }
+      opacity: 70%;
+      transition: all 0.3s ease 0s;
+   }
+   &__map.element-show{
+      opacity: 1;
+   }
+   &__offer{
+      padding: 120px 0px 0px 0px;
+      @media(max-width: $md2){
+         padding: 80px 0px 0px 0px;
+      }
+   }
+}
+.video{
+   @media(max-width: $md1){
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+   }
+   display: flex;
+   gap: 70px;
+   
+   &__frame{
+      .frame-fullscrean{
+         visibility: 1;
+         @media(max-width:620px){
+            visibility: 0;
+            display: none;
+         }
+      }
+      .frame-mobile{
+         visibility: 0;
+         display: none;
+         @media(max-width:620px){
+            visibility: 1;
+            display: block;
+         }
+      }
+      transition: all 0.5s ease 0s;
+      position: relative;
+      opacity: 0;
+      left: -100px;
+      position: relative;
+
+   }
+   &__frame.element-show{
+      left: 0;
+      opacity: 1;
+   }
+   &__title{
+      @include adaptive-value("font-size",24,18,1);
+      position: relative;
+      right: -100px;
+      opacity: 0;
+      transition: all 0.5s ease 0s;
+      padding: 30px 0px 0px 0px;
+      color: #FFF;
+      font-family: 'Montserrat',sans-serif;
+      
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      @media(max-width: $md1){
+      text-align: center;
+      }
+   }
+   &__title.element-show{
+      right: 0px;
+      opacity: 1;
+   }
+   &__subtitle{
+      @media(max-width: $md1){
+      text-align: center;
+      padding: 20px 0px 0px 0px;
+      }
+      position: relative;
+      right: -100px;
+      opacity: 0;
+      transition: all 0.7s ease 0s;
+      padding: 70px 0px 0px 0px;
+      color: #FFF;
+      font-family: 'Montserrat',sans-serif;
+      @include adaptive-value("font-size",20,16,1);
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+   }
+   &__subtitle.element-show{
+      right: 0px;
+      opacity: 1;
+   }
+}
+.offer{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   &__lable{
+      color: #FFF;
+   
+   text-align: center;
+   font-family: 'Montserrat',sans-serif;
+   @include adaptive-value("font-size",24,18,1);
+   font-style: normal;
+   font-weight: 300;
+   line-height: normal;
+   }
+   &__button{
+      transition: all 0.3s ease 0s;
+      box-shadow:0px 2px 17px rgba(251, 203, 58, 0.70);
+      margin: 40px 0px 120px 0px;
+      @media(max-width: $md2){
+         margin: 40px 0px 80px 0px;
+      }
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      // width: 190px;
+      // height: 55px;
+      @include adaptive-value("width",190,150,1);
+      @include adaptive-value("height",55,40,1);
+      border-radius: 61px;
+      border: 1px solid #FBCB3A;
+      background: linear-gradient(180deg, rgba(255, 206, 60, 0.12) 0%, rgba(251, 203, 58, 0.32) 100%);
+      p{
+         color: #FBCB3A;
+         font-family: 'Montserrat',sans-serif;
+         @include adaptive-value("font-size",24,18,1);
+         font-style: normal;
+         font-weight: 400;
+         line-height: normal;
+      }
+   }
+   &__button:hover{
+      transform: scale(1.05);
+      border: 1px solid #ffdb70;
+      cursor:pointer;
+      box-shadow:0px 2px 35px rgba(251, 203, 58, 0.70);
+      /* background: linear-gradient(180deg, rgba(255, 206, 60, 0.12) 0%, rgba(251, 203, 58, 0.32) 0%); */
+      p{
+         color: #ffdb70;
+      }
+   }
+   &__image-ticket{
+      // width: 35px;
+      // height: 35px;
+      @include adaptive-value("width",35,25,1);
+      @include adaptive-value("height",35,25,1);
+   }
+}
+/* =============== */
+.qoute.preload{
+   opacity: 0;
+   margin: 250px 0px 0px -1000px;
+   hr{
+      background-color: rgba(0,0,0,0);
+    }
+}
+.qoute{
+   transition: all 1s ease 0s;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   &__body{
+      transition: all 1s ease 0s;
+      display: flex;
+      .qoute__decor:last-child{
+         align-items: end;
+      }
+   }
+   &__decor{
+      @media(max-width: $md2){
+         transform: scale(0);
+      }
+      transition: all 1s ease 0s;
+      display: flex;
+      align-items: start;
+   }
+   &__decor.preload{
+      transform: scale(0.7);
+   }
+   &__text{
+      transition: all 1s ease 0s;
+      padding: 15px 0;
+      color: #FFF;
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   @include adaptive-value("font-size", 36, 20, 1);
+   font-style: normal;
+   font-weight: 300;
+   line-height: 150%; /* 54px */
+   b{
+      font-weight: 500;
+   }
+   }
+   &__text.preload{
+      color: rgba(0,0,0,0);
+   }
+   &__avtor{
+      transition: all 1s ease 0s;
+      margin-top: 30px;
+      color: #FFF;
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   @include adaptive-value("font-size", 32, 18, 1);
+   font-style: italic;
+   font-weight: 300;
+   line-height: normal;
+   }
+   &__avtor.preload{
+      color: rgba(0,0,0,0);
+   }
+   hr{
+      transition: all 1s ease 0s;
+      margin: 10px 0px 0px 0px;
+      position: relative;
+      display: block;
+      background-color: #fff;
+      width: 300px;
+      @media(max-width: $md2){
+      width: 200px;
+      }
+      height: 1px;
+   }
+}
+
+
+
+.background{
+   &-g{
+      @media(max-width: 1100px){
+      height: 1000px;
+      }
+      @media(max-width: 900px){
+         height: 900px;
+         }
+      @media(max-width: $md3){
+         height: 850px;      
+      }
+      @media(max-width: 500px){
+         height: 750px;
+         }
+      
+
+   }
+   &-p{
+      @media(max-width: $md1){
+      height: 1200px;
+      }
+      @media(max-width: 1000px){
+         height: 1300px;
+         }
+      @media(max-width: $md3){
+         height: 1200px;      
+      }
+      // @media(max-width: 500px){
+      //    height: 750px;
+      //    }
+      
+
+   }
+   &-t{
+      @media(max-width: $md1){
+      height: 1200px;
+      }
+      @media(max-width: 1000px){
+         height: 1300px;
+         }
+         @media(max-width: $md2){
+            height: 1200px;
+            }
+         
+      @media(max-width: $md3){
+         height: 1200px;      
+      }
+      // @media(max-width: 500px){
+      //    height: 750px;
+      //    }
+      
+
+   }
+   position: absolute;
+   width: 100%;
+   height: 1080px;
+   top: 0;
+   left: 0;
+   z-index: -1;
+   img{
+      position: relative;
+      top: 0;
+      height: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+   &::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(66.81% 66.81% at 50% 50%, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.40) 100%);
+      z-index: 1;
+     }
+}
+
+
+
+/* ============================= */
+
+/* ONSROLL ANIMATIONS */
+
+
+
+
+/* ================== */

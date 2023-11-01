@@ -1,0 +1,39 @@
+.footer {
+  position: relative;
+  background-color: #141414;
+  color: #fff;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 120px;
+}
+.footer__wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__title {
+  color: #FFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.footer__text {
+  font-family: "Montserrat", sans-serif;
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.main-price .footer {
+  transition: all 1s ease 0s;
+}
+.main-price .footer.preload {
+  margin: 120px 0px 0px 0px;
+}

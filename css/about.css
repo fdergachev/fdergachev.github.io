@@ -1,0 +1,64 @@
+.numbered-list {
+  list-style: none;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 18.56px;
+}
+.numbered-list > :nth-child(even) .numbered-list__item {
+  flex-direction: row-reverse;
+}
+.numbered-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.numbered-list li:not(:last-child) {
+  margin: 0px 0px 150px 0px;
+}
+.numbered-list__sublsit {
+  margin: 50px 0px 0px 70px;
+}
+.numbered-list__img, .numbered-list > :nth-child(even) .numbered-list__item .numbered-list__text {
+  transition: all 0.5s ease 0s;
+  opacity: 0;
+  position: relative;
+  right: -300px;
+}
+.numbered-list > :nth-child(even) .numbered-list__item .numbered-list__img.numbered-list__img, .numbered-list > :nth-child(odd) .numbered-list__item .numbered-list__text {
+  position: relative;
+  left: -300px;
+  opacity: 0;
+  transition: all 0.5s ease 0s;
+}
+.numbered-list__img.element-show, .numbered-list > :nth-child(even) .numbered-list__item .numbered-list__text.element-show {
+  opacity: 1;
+  right: 0;
+}
+.numbered-list__img.element-show:hover {
+  transform: scale(1.05) rotateY(10deg);
+  filter: drop-shadow(10px 0px 10px rgba(0, 0, 0, 0.5));
+}
+.numbered-list > :nth-child(even) .numbered-list__item .numbered-list__img.element-show, .numbered-list > :nth-child(odd) .numbered-list__item .numbered-list__text.element-show {
+  position: relative;
+  opacity: 1;
+  left: 0;
+}
+.numbered-list > :nth-child(even) .numbered-list__item .numbered-list__img.element-show:hover {
+  transform: scale(1.05) rotateY(-10deg);
+  filter: drop-shadow(-10px 0px 10px rgba(0, 0, 0, 0.5));
+}
+
+.sublist {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: normal;
+}
+.sublist li:not(:last-child) {
+  margin: 0px 0px 20px 0px;
+}

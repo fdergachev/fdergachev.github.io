@@ -1,0 +1,217 @@
+.main-g{
+      width: 100%;
+      max-height: 1200px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+}
+.gallery{
+   &__body{
+      max-width: 1200px;
+      @media(max-width: $md3){
+         width: 100%;
+         margin: 40px 0px 40px 0px;
+      }
+      margin: 50px 0px 60px 0px;
+      position: relative;
+      transition: all 1s ease 0s;
+      // margin: 50px 0px 0px 0px;
+      @media(any-hover: none){
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+       }
+   }
+   &__body.preload{
+      position: relative;
+      opacity: 0;
+      margin: 50px 0px 0px 0px;
+   }
+   &__items{
+      
+      display: grid;
+         grid-template-columns: auto;
+         grid-auto-flow: column;
+         align-items: center;
+         gap: 16px;
+         @media(any-hover: hover){
+               justify-content: center;       
+          }
+   }
+   &__column{
+      display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         margin: 0px -8px;
+         
+    }
+    &__column:first-child{
+      justify-content: flex-end;
+   }
+   &__row{
+      display: inline-grid;
+      padding: 0px 8px;
+      gap: 16px;
+      grid-template-columns: auto;
+      grid-auto-flow: column;
+      &:not(:last-child){
+         margin: 0px 0px 16px 0px;  
+      }
+    }
+}
+
+ 
+ 
+.row-gallery{
+   &__item img{
+      border-radius: 15px;
+      @media(any-hover: hover){
+         transition: all 0.3s ease 0s;
+         filter: brightness(0.9) grayscale(1);
+      }
+      filter: grayscale(0.2);
+      
+
+   }
+   &__item:hover img{
+      @media(any-hover: hover){
+         transition: all 0.3s ease 0s;
+         filter: brightness(1) grayscale(0);
+      }
+   }
+   &__item{
+      // @media(max-width: $md1){
+      //    width: 20%;
+      // }
+      // @media(max-width: $md2){
+         
+      // }
+      // @media(max-width: $md4){
+      //    transform: scale(0.4);
+      // }
+      &-3 img{
+         object-fit: cover;
+         position: relative;
+         // width: 451px;
+         // height: 312px;
+         @include adaptive-value("width",451,225,1);
+         @include adaptive-value("height",312,156,1);
+         
+      }
+      &-2 img{
+         object-fit: cover;
+         position: relative;
+         // width: 274px;
+         // height: 382px;
+         @include adaptive-value("width",274,137,1);
+         @include adaptive-value("height",382,191,1);
+      }
+      &-7 img{
+         position: relative;
+         object-fit: cover;
+         // width: 295px;
+         // height:392px;
+         @include adaptive-value("width",295,147,1);
+         @include adaptive-value("height",392,196,1);
+      }
+      &-1 img{
+         position: relative;
+         object-fit: cover;
+         // width: 258px;
+         // height:196px;
+         @include adaptive-value("width",258,129,1);
+         @include adaptive-value("height",196,98,1);
+      }
+      &-4 img{
+         position: relative;
+         object-fit: cover;
+         // width: 290px;
+         // height:348px;
+         @include adaptive-value("width",290,145,1);
+         @include adaptive-value("height",348,174,1);
+      }
+      &-5 img{
+         position: relative;
+         object-fit: cover;
+         // width: 381px;
+         // height:323px;
+         @include adaptive-value("width",381,191,1);
+         @include adaptive-value("height",323,161,1);
+      }
+      &-6 img{
+         position: relative;
+         object-fit: cover;
+         // width: 344px;
+         // height:242px;
+         @include adaptive-value("width",344,172,1);
+         @include adaptive-value("height",242,121,1);
+      }
+      &-8 img{
+         position: relative;
+         object-fit: cover;
+         // width: 290px;
+         // height:348px;
+         @include adaptive-value("width",290,145,1);
+         @include adaptive-value("height",348,174,1);
+      }
+      &-9 img{
+         position: relative;
+         object-fit: cover;
+         // width: 274px;
+         // height:383px;
+         @include adaptive-value("width",274,137,1);
+         @include adaptive-value("height",383,191,1);
+      }
+      &-10 img{
+         position: relative;
+         object-fit: cover;
+         // width: 178px;
+         // height:242px;
+         @include adaptive-value("width",178,89,1);
+         @include adaptive-value("height",242,121,1);
+      }
+      &-11 img{
+         position: relative;
+         object-fit: cover;
+         // width: 258px;
+         // height:196px;
+         @include adaptive-value("width",258,129,1);
+         @include adaptive-value("height",196,98,1);
+      }
+      &-12 img{
+         position: relative;
+         object-fit: cover;
+         // width: 381px;
+         // height:323px;
+         @include adaptive-value("width",381,190,1);
+         @include adaptive-value("height",323,161,1);
+      }
+      &-13 img{
+         position: relative;
+         object-fit: cover;
+         width: 425px;
+         height:433px;
+         @include adaptive-value("width",425,212,1);
+         @include adaptive-value("height",433,216,1);
+      }
+   }
+}
+
+.row-gallery_left-top{
+   justify-content: end;
+   align-items: end;
+}
+
+.row-gallery_left-bottom {
+   justify-content: end;
+   align-items: start;
+}
+.row-gallery_center {
+   display: block;
+}
+.row-gallery_right-top {
+   align-items: end;
+}
+.row-gallery_right-bottom {
+   align-items: start;
+}

@@ -1,0 +1,273 @@
+.header{
+   position: relative;
+   top: 0;left: 0;
+   min-height: 160px;
+   width: 100%;
+   &__wrapper{
+      padding: 40px 0px 0px 0px;
+      @media(max-width: $md4){
+      padding: 20px 0px 0px 0px;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+   }
+   &__title{
+      &-b{
+         color: #000;
+      }
+      @include adaptive-value("font-size",32,20,1);
+      color: #FFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      text-align: center;  
+      // font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 18px;
+      @media(max-width: $md2){
+         letter-spacing: 10px;
+      }
+      text-transform: uppercase;
+      text-align: center;
+      transition: all 1s ease 0s; 
+      @media(max-width: $md1){
+         line-height: 1.4;
+      }
+   }
+   &__title.preload{
+      margin: -100px 0px 0px 0px;
+   }
+}
+
+
+//menu navigation
+
+.menu.preload{
+   margin: -30px 0px 0px 0px;
+}
+.menu{
+   
+   transition: all 1s ease 0s;
+   padding: 40px 0px 10px 0px;
+   @media(max-width: $md4){
+      padding: 20px 0px 10px 0px;
+      }
+   display: flex;
+   gap: 30px;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   &__link-a{
+        
+      .menu__link-about{ 
+         p{
+            color: #000;
+         }
+         p:before{
+            background:no-repeat url("/img/ArrowDark.svg") ;
+         }
+      }
+   }
+   &__link {
+      
+      &:first-child{
+         padding: 0px 0px 0px 20px;
+      }
+      &:last-child{
+         padding: 0px 20px 0px 0px;
+      }
+      p{
+         @media(max-width: 470px){
+         font-size: 16px;
+         }
+         
+         pointer-events: auto;
+         display: block;
+         transition: all 0.3s ease 0s;
+         position: relative;
+         z-index: 5;
+         color: #FFF;
+         font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      }
+      p.link__text-a{
+         color: #000;
+      }
+      &-about{
+         &.active{
+            p{
+            color: #737373;
+            }
+            p.link__text-a{
+               color: #FFF;
+            }
+            p:before{
+               transform: rotate(90deg);
+               background: no-repeat url("/img/ArrowGrey.svg");
+            }
+            p.link__text-a{
+               &::before{
+                  background:no-repeat url("/img/Arrow1.svg") ;
+               }
+            }
+         }
+         p:before{
+            @media(max-width: 470px){
+            top: 4px;
+            }
+         pointer-events: auto;
+         transition: all 0.3s ease 0s;
+         content: "";
+         display: block;
+         position: absolute;
+         top: 9px;
+         left: -22px;
+         width: 12px;
+         height: 12px;
+         background:no-repeat url("/img/Arrow1.svg") ;
+         }
+         p.link__text-a{
+            &::before{
+               background:no-repeat url("/img/ArrowDark.svg") ;
+            }
+         }
+      }
+      &-gallery {
+         p:before{
+            @media(max-width: 470px){
+               top: 4px;
+               }
+         pointer-events: auto;
+         transition: all 0.3s ease 0s;
+         content: "";
+         display: block;
+         position: absolute;
+         top: 9px;
+         right: -22px;
+         width: 12px;
+         height: 12px;
+         transform: rotate(180deg);
+         background:no-repeat url("/img/Arrow1.svg") ;
+         }
+         p.link__text-a{
+            &::before{
+               background:no-repeat url("/img/ArrowDark.svg") ;
+            }
+         }
+         &.active{
+            p{
+            color: #737373;
+            }
+            p.link__text-a{
+               color: #FFF;
+            }
+            p:before{
+            transform: rotate(90deg);
+            background: no-repeat url("/img/ArrowGrey.svg");
+            }
+            p.link__text-a{
+               &::before{
+                  background:no-repeat url("/img/Arrow1.svg") ;
+               }
+            }
+         }
+      }
+      &-price.active{
+         p{
+         color: #737373;
+         }
+         p.link__text-a{
+            color: #FFF;
+         }
+      }
+   }
+   
+   
+   &__decor{
+      
+      &-a{
+
+         left: 94px;
+         border:#000 solid 1.5px;
+         background-color: #000;
+         
+      }
+      &-a.menu__decor-1{
+         @media(max-width: 470px){
+            left: 74px;
+            height: 25px;
+         }
+         &.active-about{
+            width: 109px;
+         }
+      }
+      &-a.menu__decor-2{
+         left: 185px;
+         margin: 0px 0px 0px 0px;
+         @media(max-width:470px){
+            left:145px;
+            }
+      }
+      &-1{
+         &.active-price{
+         pointer-events: auto;
+         width: 91px;
+         margin: 0px 0px 0px 0px;
+         right: 0;
+         }
+       }
+      &-2{
+         &.active-price{
+         pointer-events: auto;
+         width: 91px;
+         margin: 0px 0px 0px -91px;
+         right: 0;
+         }
+      }
+
+      &.active-about{
+         pointer-events: auto;
+         width: 122px;
+         margin: 0px 0px 0px -15px;
+         left: 0;
+         border-radius: 10px 0px 0px 10px;
+      }
+      &.active-gallery{
+         pointer-events: auto;
+         width: 125px;
+         margin: 0px 0px 0px 0px;
+         right: 0;
+         border-radius: 0px 10px 10px 0px;
+      }
+      @media(max-width: 470px){
+         left: 84px;
+         height: 25px;
+      }
+      position: absolute;
+      top: auto;
+      left: 107px;
+      width: 0px;
+      transition: all 0.3s ease 0s;
+      border:white solid 1.5px;
+      height: 40px;
+      background-color: #FFF;
+      &-2{
+         @media(max-width:470px){
+         left:152px;
+         }
+         left: 198px;
+      }
+      &-g{
+         &.active-gallery{
+          width: 105px;
+         }
+       }
+   }
+   
+}
+

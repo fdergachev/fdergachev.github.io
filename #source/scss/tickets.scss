@@ -1,0 +1,221 @@
+.main-tickets{
+   
+   .content{
+      &__wrapper{
+         transition: all 1s ease 0s;
+         width: 500px;
+         height: 820px;
+         @media(max-width: $md3){
+            width: 400px;
+            height: 100%;
+         }
+         @media(max-width: 420px){
+            width: 100%;
+         }
+         margin: 40px auto 60px auto;
+         display: flex;
+         align-items: center;
+         flex-direction: column;
+         border-radius: 45px;
+         border: 2px solid rgba(255, 255, 255, 0.26);
+         background: linear-gradient(116deg, rgba(255, 255, 255, 0.30) 19%, rgba(255, 255, 255, 0.10) 81.25%);   
+         box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.20);
+         backdrop-filter: blur(3.5px);
+      }
+      &__wrapper.preload{
+         opacity: 0.5;
+         margin: 100px 0px 0px 0px;
+      }
+      &__title{
+         position: relative;
+         color: #FFF;   
+         font-family: 'Montserrat', sans-serif;
+         @include adaptive-value("font-size",32,20,1);
+         font-style: normal;
+         font-weight: 700;
+         line-height: normal;
+         padding: 30px 0px 30px 0px;
+         @media(max-width: $md3){
+            padding: 15px 0px 15px 0px;
+         }
+         &::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -43%;
+            @include adaptive-value("width",450,275,1);
+            @media(max-width: 420px){
+            width: 120%;
+            left: -10%;
+            padding: 0 20px;
+            }
+            height: 1px;
+            border-radius: 50%;
+            opacity: 0.5;
+            background-color: #fff;
+         }
+      }
+      &__form-wrapper{
+         margin: 20px 50px 0px 50px;
+         @media(max-width: $md3){
+            margin: 20px 20px 0px 20px;
+         }
+      }
+   }
+   
+   .form{
+      display: flex;
+      &__item{
+         margin: 0px 0px 20px 0px;
+         padding: 0px 34px 0px 34px;
+         position: relative;
+         width: 100%;
+         border-radius: 45px;
+         border: 1px solid #FFF;
+         background: rgba(255, 255, 255, 0.10);
+         height: 55px;
+         @media(max-width: $md3){
+            height: 45px;
+         }
+         color: #FFF;
+         font-family: 'Montserrat',sans-serif;
+         @include adaptive-value("font-size",20,16,1);
+         font-style: normal;
+         font-weight: 300;
+         line-height: normal;
+         &::placeholder{
+            color: #FFF;
+            font-family: 'Montserrat',sans-serif;
+            @include adaptive-value("font-size",20,16,1);
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+         }
+         &:nth-child(5){
+            width: 200px;
+            @media(max-width: $md3){
+               width: 100%;
+            }
+            margin: 0px 13px 20px 0px;
+         }
+         &-type::-ms-expand { 
+            display: none;
+         }
+         &-type{
+            /* for Firefox */ 
+            -moz-appearance: none;   
+            /* for Safari, Chrome, Opera */ 
+            -webkit-appearance: none; 
+         }
+         &-quantity{
+            /* for Firefox */ 
+            -moz-appearance: none;   
+            /* for Safari, Chrome, Opera */ 
+            -webkit-appearance: none; 
+         }
+         &-quantity::-ms-expand { 
+            display: none;
+         }
+         &-type option{
+         
+            color: #000000;
+         }
+         &-quantity  option{
+            color: #000000;
+         }
+         &-date::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+        &:nth-child(6){
+         width: 180px;
+         @media(max-width: $md3){
+            width: 100%;
+         }
+      }
+      &:nth-child(7){
+         width: 160px;
+         margin: 0px 13px 20px 0px;
+         @media(max-width: $md3){
+            width: 100%;
+         }
+      }
+      &:nth-child(8){
+         width: 220px;
+         @media(max-width: $md3){
+            width: 100%;
+         }
+      }
+      &-textarea{
+         padding: 15px 30px 15px 30px;
+           resize: none;
+           height: 110px;
+           margin: 0px 0px 15px 0px;
+           
+      }
+      &-checkbox-text{
+         position: relative;
+         display: flex;
+         align-items: center;
+         color: #FFF;
+         font-family: 'Montserrat',sans-serif;
+         @include adaptive-value("font-size",16,14,1);
+         font-style: normal;
+         font-weight: 300;
+         line-height: normal;
+      }
+      &-checkbox{
+         margin: 0px 0px 0px 5px;
+         border-radius: 5px;
+         border: 1px solid #FFF;
+         width: 16px;
+         height: 16px;
+         z-index: 5;
+         opacity: 0;
+      }
+      &-button{
+         transition: all 0.3s ease 0s;
+         box-shadow:0px 2px 17px rgba(251, 203, 58, 0.70);
+         margin: 20px auto 30px auto;
+         gap: 12px;
+         justify-content: center;
+         align-items: center;
+         display: flex;
+         
+         @include adaptive-value("width",190,170,1);
+         @include adaptive-value("height",55,45,1);
+         border-radius: 61px;
+         border: 1px solid #FBCB3A;
+         background: linear-gradient(180deg, rgba(255, 206, 60, 0.12) 0%, rgba(251, 203, 58, 0.32) 100%);
+         color: #FBCB3A;
+         font-family: 'Montserrat',sans-serif;
+         @include adaptive-value("font-size",24,18,1);
+         font-style: normal;
+         font-weight: 400;
+         line-height: normal;
+         &:hover{
+            transform: scale(1.05);
+            border: 1px solid #ffdb70;
+            cursor:pointer;
+            box-shadow:0px 2px 35px rgba(251, 203, 58, 0.70);
+            color: #ffdb70;
+            /* background: linear-gradient(180deg, rgba(255, 206, 60, 0.12) 0%, rgba(251, 203, 58, 0.32) 0%); */
+         }
+      }
+      }
+   }
+   
+   .checkbox-mark.active{
+      background-color: #FBCB3A;
+      background-image: url("../img/Cross\ ico.png");
+      background-position: center;
+   }
+   .checkbox-mark{
+      position: relative;
+      width: 16px;
+      height: 16px;
+      margin: 0px 0px 0px -16px;
+      border-radius: 5px;
+      border: 2px solid #FFF;
+
+   }
+}  
